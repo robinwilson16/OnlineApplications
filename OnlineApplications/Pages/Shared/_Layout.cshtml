@@ -1,0 +1,114 @@
+﻿@using Microsoft.Extensions.Options
+@using OnlineApplications.Models
+
+@inject IOptions<SystemSettings> ApplicationSettings
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OnlineApplications</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/twitter-bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/all.css" />
+        <link rel="stylesheet" href="~/css/slider.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/twitter-bootstrap/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
+              crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css"
+              crossorigin="anonymous"
+              asp-fallback-href="~/lib/font-awesome/css/all.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
+        <link rel="stylesheet" href="~/css/slider.css" asp-append-version="true" />
+    </environment>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-page="/Index">
+                <img class="NavLogo" src="~/images/WestLondonCollegeLogo.png" alt="West London College" />
+                Online Applications
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <p class="nav navbar-text navbar-right">TEXT</p>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-page="/Index"><i class="fas fa-home"></i> Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="HelpDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-question-circle"></i> Help
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="HelpDropdown">
+                            <a class="dropdown-item" href="#" id="ChangelogLink"><i class="fas fa-pencil-alt"></i> Changelog</a>
+                            <a class="dropdown-item" href="https://github.com/robinwilson16/OnlineApplications/issues" target="_blank" rel="noopener"><i class="fas fa-bug"></i> Issues?</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#" id="AboutSystemLink"><i class="fas fa-question-circle"></i> About</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        @*<partial name="_CookieConsentPartial" />*@
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="fixed-bottom bg-light">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <span class="text-muted">
+
+                    </span>
+                </div>
+                <div class="col-md-6 text-center">
+
+                </div>
+                <div class="col-md-3 text-right">
+                    <span class="text-muted">&copy; 2019-2020 - OnlineApplications @ApplicationSettings.Value.Version</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>
+        <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.js" asp-append-version="true"></script>
+        <script src="~/lib/marked/marked.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/twitter-bootstrap/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.8.0/marked.min.js"
+                crossorigin="anonymous">
+        </script>>
+    </environment>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,156 @@
+﻿@page
+@model OnlineApplications.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Forename)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Surname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].MobilePhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].HomePhone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].PreferLetter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Address1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Address2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Address3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].Address4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].PostcodeOut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].PostcodeIn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].VisaRequired)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].VisaHeld)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].VisaType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].SchoolID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].EthnicGroupID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Application[0].DisabilityCategoryID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Application) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Forename)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobilePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomePhone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PreferLetter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostcodeOut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostcodeIn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisaRequired)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisaHeld)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisaType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SchoolID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EthnicGroupID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisabilityCategoryID)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ApplicationID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ApplicationID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ApplicationID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
