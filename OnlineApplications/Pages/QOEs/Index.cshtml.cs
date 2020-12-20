@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineApplications.Data;
 using OnlineApplications.Models;
 
-namespace OnlineApplications.Applications
+namespace OnlineApplications.QOEs
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,12 @@ namespace OnlineApplications.Applications
             _context = context;
         }
 
-        public IList<Application> Application { get;set; }
+        public IList<QualificationOnEntry> QualificationOnEntry { get;set; }
 
         public async Task OnGetAsync()
         {
-            Application = await _context.Application.ToListAsync();
+            QualificationOnEntry = await _context.QualificationOnEntry
+                .Include(q => q.Application).ToListAsync();
         }
     }
 }

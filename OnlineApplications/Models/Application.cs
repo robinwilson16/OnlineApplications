@@ -46,7 +46,7 @@ namespace OnlineApplications.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
-        public bool? PreferLetter { get; set; }
+        public bool PreferLetter { get; set; }
 
         [Display(Name = "First Line of Address")]
         [StringLength(100)]
@@ -74,9 +74,10 @@ namespace OnlineApplications.Models
         [Required]
         public string PostcodeIn { get; set; }
 
-        public bool? VisaRequired { get; set; }
-        public bool? VisaHeld { get; set; }
+        public bool VisaRequired { get; set; }
+        public bool VisaHeld { get; set; }
 
+        [Display(Name = "If you have answered 'yes' to any of the above questions, what type of visa do you currently hold or intend to apply for?")]
         public int? VisaType { get; set; }
 
         [Display(Name = "Where did you previously study?")]
@@ -87,5 +88,8 @@ namespace OnlineApplications.Models
 
         [Display(Name = "Do you have any Disabilities or Learning Difficulties?")]
         public int? DisabilityCategoryID { get; set; }
+
+        [Display(Name = "If you need additional support at interview because of your learning difficulty or disability please tick this box. A member of our Additional Learning Support team will contact you to discuss your needs.")]
+        public bool AdditionalSupportRequiredAtInterview { get; set; }
     }
 }

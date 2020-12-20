@@ -1,0 +1,60 @@
+﻿@page
+@model OnlineApplications.QOEs.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>QualificationOnEntry</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="QualificationOnEntry.QualificationOnEntryID" />
+            <div class="form-group">
+                <label asp-for="QualificationOnEntry.ApplicationID" class="control-label"></label>
+                <select asp-for="QualificationOnEntry.ApplicationID" class="form-control" asp-items="ViewBag.ApplicationID"></select>
+                <span asp-validation-for="QualificationOnEntry.ApplicationID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QualificationOnEntry.SubjectID" class="control-label"></label>
+                <input asp-for="QualificationOnEntry.SubjectID" class="form-control" />
+                <span asp-validation-for="QualificationOnEntry.SubjectID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QualificationOnEntry.Subject" class="control-label"></label>
+                <input asp-for="QualificationOnEntry.Subject" class="form-control" />
+                <span asp-validation-for="QualificationOnEntry.Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QualificationOnEntry.ActualGrade" class="control-label"></label>
+                <input asp-for="QualificationOnEntry.ActualGrade" class="form-control" />
+                <span asp-validation-for="QualificationOnEntry.ActualGrade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QualificationOnEntry.PredictedGrade" class="control-label"></label>
+                <input asp-for="QualificationOnEntry.PredictedGrade" class="form-control" />
+                <span asp-validation-for="QualificationOnEntry.PredictedGrade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QualificationOnEntry.DateAwarded" class="control-label"></label>
+                <input asp-for="QualificationOnEntry.DateAwarded" class="form-control" />
+                <span asp-validation-for="QualificationOnEntry.DateAwarded" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

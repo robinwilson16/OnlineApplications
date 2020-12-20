@@ -9,3 +9,16 @@
 .Spacer {
     margin-top: 20px;
 }
+
+.bd-callout {
+    background-color: #ffffff;
+}
+
+.card-header {
+    background-color: #E5E7E9;
+}
+
+.card-header h5 .btn {
+    font-size: 1.2em;
+    font-weight: bold;
+}

@@ -1,0 +1,66 @@
+﻿@page
+@model OnlineApplications.QOEs.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QualificationOnEntry[0].SubjectID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QualificationOnEntry[0].Subject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QualificationOnEntry[0].ActualGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QualificationOnEntry[0].PredictedGrade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QualificationOnEntry[0].DateAwarded)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QualificationOnEntry[0].Application)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.QualificationOnEntry) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubjectID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualGrade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PredictedGrade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateAwarded)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Application.Address1)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.QualificationOnEntryID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.QualificationOnEntryID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.QualificationOnEntryID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,55 @@
+﻿@page
+@model OnlineApplications.QOEs.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>QualificationOnEntry</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QualificationOnEntry.SubjectID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QualificationOnEntry.SubjectID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QualificationOnEntry.Subject)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QualificationOnEntry.Subject)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QualificationOnEntry.ActualGrade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QualificationOnEntry.ActualGrade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QualificationOnEntry.PredictedGrade)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QualificationOnEntry.PredictedGrade)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QualificationOnEntry.DateAwarded)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QualificationOnEntry.DateAwarded)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.QualificationOnEntry.Application)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.QualificationOnEntry.Application.Address1)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.QualificationOnEntry.QualificationOnEntryID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

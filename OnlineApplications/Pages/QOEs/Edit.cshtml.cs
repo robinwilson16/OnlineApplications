@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineApplications.Data;
 using OnlineApplications.Models;
 
-namespace OnlineApplications.Applications
+namespace OnlineApplications.QOEs
 {
     public class EditModel : PageModel
     {
@@ -21,7 +21,7 @@ namespace OnlineApplications.Applications
         }
 
         [BindProperty]
-        public Application Application { get; set; }
+        public QualificationOnEntry QualificationOnEntry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,12 +30,14 @@ namespace OnlineApplications.Applications
                 return NotFound();
             }
 
-            Application = await _context.Application.FirstOrDefaultAsync(m => m.ApplicationID == id);
+            QualificationOnEntry = await _context.QualificationOnEntry
+                .Include(q => q.Application).FirstOrDefaultAsync(m => m.QualificationOnEntryID == id);
 
-            if (Application == null)
+            if (QualificationOnEntry == null)
             {
                 return NotFound();
             }
+           ViewData["ApplicationID"] = new SelectList(_context.Application, "ApplicationID", "Address1");
             return Page();
         }
 
@@ -48,7 +50,7 @@ namespace OnlineApplications.Applications
                 return Page();
             }
 
-            _context.Attach(Application).State = EntityState.Modified;
+            _context.Attach(QualificationOnEntry).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +58,7 @@ namespace OnlineApplications.Applications
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ApplicationExists(Application.ApplicationID))
+                if (!QualificationOnEntryExists(QualificationOnEntry.QualificationOnEntryID))
                 {
                     return NotFound();
                 }
@@ -69,9 +71,9 @@ namespace OnlineApplications.Applications
             return RedirectToPage("./Index");
         }
 
-        private bool ApplicationExists(int id)
+        private bool QualificationOnEntryExists(int id)
         {
-            return _context.Application.Any(e => e.ApplicationID == id);
+            return _context.QualificationOnEntry.Any(e => e.QualificationOnEntryID == id);
         }
     }
 }

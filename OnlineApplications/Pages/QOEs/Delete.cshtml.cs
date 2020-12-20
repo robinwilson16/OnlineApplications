@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using OnlineApplications.Data;
 using OnlineApplications.Models;
 
-namespace OnlineApplications.Applications
+namespace OnlineApplications.QOEs
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace OnlineApplications.Applications
         }
 
         [BindProperty]
-        public Application Application { get; set; }
+        public QualificationOnEntry QualificationOnEntry { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,10 @@ namespace OnlineApplications.Applications
                 return NotFound();
             }
 
-            Application = await _context.Application.FirstOrDefaultAsync(m => m.ApplicationID == id);
+            QualificationOnEntry = await _context.QualificationOnEntry
+                .Include(q => q.Application).FirstOrDefaultAsync(m => m.QualificationOnEntryID == id);
 
-            if (Application == null)
+            if (QualificationOnEntry == null)
             {
                 return NotFound();
             }
@@ -45,11 +46,11 @@ namespace OnlineApplications.Applications
                 return NotFound();
             }
 
-            Application = await _context.Application.FindAsync(id);
+            QualificationOnEntry = await _context.QualificationOnEntry.FindAsync(id);
 
-            if (Application != null)
+            if (QualificationOnEntry != null)
             {
-                _context.Application.Remove(Application);
+                _context.QualificationOnEntry.Remove(QualificationOnEntry);
                 await _context.SaveChangesAsync();
             }
 

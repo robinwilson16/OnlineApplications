@@ -15,6 +15,7 @@ namespace OnlineApplications.Data
         }
 
         public DbSet<Application> Application { get; set; }
+        public DbSet<QualificationOnEntry> QualificationOnEntry { get; set; }
         public DbSet<SelectListData> SelectListData { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

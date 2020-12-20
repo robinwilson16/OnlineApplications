@@ -1,144 +1,555 @@
 ﻿@page
-@model OnlineApplications.CreateModel
+@model OnlineApplications.Applications.CreateModel
 
 @{
     ViewData["Title"] = "Create";
 }
 
+<h1>Cookie: @Model.CookieTest</h1>
 <h1>Create</h1>
 
 <h4>Application</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
+    <div class="col-md" id="CreateApplication">
+        <form method="post" id="CreateApplicationFields">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Application.Title" class="control-label"></label>
-                <select asp-for="Application.Title" class="form-control" asp-items="ViewBag.TitleID">
-                    <option value="" hidden disabled selected>Please select...</option>
-                </select>
-                <span asp-validation-for="Application.Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.Forename" class="control-label"></label>
-                <input asp-for="Application.Forename" class="form-control" />
-                <span asp-validation-for="Application.Forename" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.Surname" class="control-label"></label>
-                <input asp-for="Application.Surname" class="form-control" />
-                <span asp-validation-for="Application.Surname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.DOB" class="control-label"></label>
-                <input asp-for="Application.DOB" class="form-control" />
-                <span asp-validation-for="Application.DOB" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.Gender" class="control-label"></label>
-                <select asp-for="Application.Gender" class="form-control" asp-items="ViewBag.GenderID">
-                    <option value="" hidden disabled selected>Please select...</option>
-                </select>
-                <span asp-validation-for="Application.Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.MobilePhone" class="control-label"></label>
-                <input asp-for="Application.MobilePhone" class="form-control" />
-                <span asp-validation-for="Application.MobilePhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.HomePhone" class="control-label"></label>
-                <input asp-for="Application.HomePhone" class="form-control" />
-                <span asp-validation-for="Application.HomePhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.Email" class="control-label"></label>
-                <input asp-for="Application.Email" class="form-control" />
-                <span asp-validation-for="Application.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.PreferLetter" class="control-label"></label>
-                <input asp-for="Application.PreferLetter" class="form-control" />
-                <span asp-validation-for="Application.PreferLetter" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.Address1" class="control-label"></label>
-                <input asp-for="Application.Address1" class="form-control" />
-                <span asp-validation-for="Application.Address1" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.Address2" class="control-label"></label>
-                <input asp-for="Application.Address2" class="form-control" />
-                <span asp-validation-for="Application.Address2" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.Address3" class="control-label"></label>
-                <input asp-for="Application.Address3" class="form-control" />
-                <span asp-validation-for="Application.Address3" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.Address4" class="control-label"></label>
-                <input asp-for="Application.Address4" class="form-control" />
-                <span asp-validation-for="Application.Address4" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.PostcodeOut" class="control-label"></label>
-                <input asp-for="Application.PostcodeOut" class="form-control" />
-                <span asp-validation-for="Application.PostcodeOut" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.PostcodeIn" class="control-label"></label>
-                <input asp-for="Application.PostcodeIn" class="form-control" />
-                <span asp-validation-for="Application.PostcodeIn" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.VisaRequired" class="control-label"></label>
-                <input asp-for="Application.VisaRequired" class="form-control" />
-                <span asp-validation-for="Application.VisaRequired" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.VisaHeld" class="control-label"></label>
-                <input asp-for="Application.VisaHeld" class="form-control" />
-                <span asp-validation-for="Application.VisaHeld" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.VisaType" class="control-label"></label>
-                <select asp-for="Application.VisaType" class="form-control" asp-items="ViewBag.VisaTypeID">
-                    <option value="" hidden disabled selected>Please select...</option>
-                </select>
-                <span asp-validation-for="Application.VisaType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.SchoolID" class="control-label"></label>
-                <select asp-for="Application.SchoolID" class="form-control" asp-items="ViewBag.SchoolID">
-                    <option value="" hidden disabled selected>Please select...</option>
-                </select>
-                <span asp-validation-for="Application.SchoolID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.EthnicGroupID" class="control-label"></label>
-                <select asp-for="Application.EthnicGroupID" class="form-control" asp-items="ViewBag.EthnicGroupID">
-                    <option value="" hidden disabled selected>Please select...</option>
-                </select>
-                <span asp-validation-for="Application.EthnicGroupID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Application.DisabilityCategoryID" class="control-label"></label>
-                <select asp-for="Application.DisabilityCategoryID" class="form-control" asp-items="ViewBag.DisabilityCategoryID">
-                    <option value="" hidden disabled selected>Please select...</option>
-                </select>
-                <span asp-validation-for="Application.DisabilityCategoryID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" data-interval="1">
+                                <i class="fas fa-file-alt"></i> Personal Details
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Title" class="col-3 col-sm-4 col-form-label col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8">
+                                            <select asp-for="Application.Title" class="form-control" asp-items="ViewBag.TitleID">
+                                                <option value="" hidden disabled selected>Please select...</option>
+                                            </select>
+                                            <span asp-validation-for="Application.Title" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Forename" class="col-3 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8">
+                                            <input asp-for="Application.Forename" class="form-control" />
+                                            <span asp-validation-for="Application.Forename" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Surname" class="col-3 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8">
+                                            <input asp-for="Application.Surname" class="form-control" />
+                                            <span asp-validation-for="Application.Surname" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.DOB" class="col-6 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-6 col-sm-8">
+                                            <input asp-for="Application.DOB" class="form-control" />
+                                            <span asp-validation-for="Application.DOB" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Gender" class="col-3 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8">
+                                            <select asp-for="Application.Gender" class="form-control" asp-items="ViewBag.GenderID">
+                                                <option value="" hidden disabled selected>Please select...</option>
+                                            </select>
+                                            <span asp-validation-for="Application.Gender" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.MobilePhone" class="col-6 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-6 col-sm-8">
+                                            <input asp-for="Application.MobilePhone" class="form-control" />
+                                            <span asp-validation-for="Application.MobilePhone" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.HomePhone" class="col-6 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-6 col-sm-8">
+                                            <input asp-for="Application.HomePhone" class="form-control" />
+                                            <span asp-validation-for="Application.HomePhone" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="container">
+                                        <div class="form-group row alert alert-secondary" role="alert">
+                                            <div class="col-md">
+                                                <i class="fas fa-info-circle"></i> You must enter at least one valid Phone Number.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Email" class="col-3 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8">
+                                            <input asp-for="Application.Email" class="form-control" />
+                                            <span asp-validation-for="Application.Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label for="Application.Email2" class="col-3 col-sm-4 col-form-label control-label">Email (again)</label>
+                                        <div class="col-9 col-sm-8">
+                                            <input type="email" id="Application.Email2" class="form-control" />
+                                            <span class="text-danger field-validation-valid" data-valmsg-for="Application.Email2" data-valmsg-replace="true"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="container">
+                                        <div class="form-group row alert alert-primary" role="alert">
+                                            <div class="col-sm-11">
+                                                <i class="fas fa-paper-plane"></i> We will use this email address to contact you about your application. If you prefer to receive a letter please tick here:
+                                            </div>
+                                            <div class="col-sm-1 text-right">
+                                                <label class="switch-sm">
+                                                    <input asp-for="Application.PreferLetter" class="custom-control-input" />
+                                                    <span class="slider-sm round"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    
+                                </div>
+
+                                <div class="col text-right">
+                                    <div class="row">
+                                        <div class="col d-none d-sm-block">
+                                            @*Used for button spacing when not small window*@
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn btn-primary btn-block NextStep1">Next <i class="fas fa-arrow-circle-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" data-interval="2">
+                                <i class="fas fa-file-alt"></i> Address Details
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Address1" class="col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-sm-8">
+                                            <input asp-for="Application.Address1" class="form-control" />
+                                            <span asp-validation-for="Application.Address1" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Address2" class="col-3 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8">
+                                            <input asp-for="Application.Address2" class="form-control" />
+                                            <span asp-validation-for="Application.Address2" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Address3" class="col-3 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8">
+                                            <input asp-for="Application.Address3" class="form-control" />
+                                            <span asp-validation-for="Application.Address3" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.Address4" class="col-3 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8">
+                                            <input asp-for="Application.Address4" class="form-control" />
+                                            <span asp-validation-for="Application.Address4" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.PostcodeOut" class="col-3 col-sm-4 col-form-label control-label"></label>
+                                        <div class="col-9 col-sm-8 text-right">
+                                            <input asp-for="Application.PostcodeOut" class="form-control col-md-3 col-4 d-inline" />
+                                            <input asp-for="Application.PostcodeIn" class="form-control col-md-3 col-4 d-inline" />
+                                            <span asp-validation-for="Application.PostcodeOut" class="text-danger d-block"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="container">
+                                        <div class="form-group row alert alert-primary" role="alert">
+                                            <div class="col-md">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-8">
+                                                        Will you need a visa to study in the UK? If yes, please tick here
+                                                    </div>
+                                                    <div class="col-sm-4 text-right">
+                                                        <label class="switch-sm">
+                                                            <input asp-for="Application.VisaRequired" class="custom-control-input" />
+                                                            <span class="slider-sm round"></span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md">
+                                                        <div class="form-group row">
+                                                            <div class="col-sm-8">
+                                                                Do you hold a current UK visa? If yes, please tick here
+                                                            </div>
+                                                            <div class="col-sm-4 text-right">
+                                                                <label class="switch-sm">
+                                                                    <input asp-for="Application.VisaHeld" class="custom-control-input" />
+                                                                    <span class="slider-sm round"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md">
+                                                        <div class="form-group row">
+                                                            <label asp-for="Application.VisaType" class="col-md-8 col-form-label control-label"></label>
+                                                            <div class="col-md-4">
+                                                                <select asp-for="Application.VisaType" class="form-control" asp-items="ViewBag.VisaTypeID">
+                                                                    <option value="" hidden disabled selected>Please select...</option>
+                                                                </select>
+                                                                <span asp-validation-for="Application.VisaType" class="text-danger"></span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md">
+                                                        <div class="bd-callout bd-callout-info">
+                                                            <p>
+                                                                The College is not currently able to sponsor students who require a Tier 4 visa to study in the United Kingdom. 
+                                                                We offer immigration support for students requiring a Short Term Study visa to study in the UK.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-secondary btn-block"><i class="fas fa-arrow-circle-left"></i> Back</button>
+                                        </div>
+                                        <div class="col d-none d-sm-block">
+                                            @*Used for button spacing when not small window*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col text-right">
+                                    <div class="row">
+                                        <div class="col d-none d-sm-block">
+                                            @*Used for button spacing when not small window*@
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn btn-primary btn-block NextStep2">Next <i class="fas fa-arrow-circle-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" data-interval="3">
+                                <i class="fas fa-file-alt"></i> Further Details
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="bd-callout bd-callout-info">
+                                        <p>
+                                            The College is committed to equality, diversity and inclusion and strives to provide equality of opportunity for all.
+                                            The information collected on this form will be used for monitoring purposes and to provide additional support where required.
+                                            Information provided will be treated confidentially.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <label asp-for="Application.SchoolID" class="col-md col-form-label control-label"></label>
+                                        <div class="col-md">
+                                            <select asp-for="Application.SchoolID" class="form-control" asp-items="ViewBag.SchoolID">
+                                                <option value="" hidden disabled selected>Please select...</option>
+                                            </select>
+                                            <span asp-validation-for="Application.SchoolID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <div class="col-md">
+                                            <label asp-for="Application.EthnicGroupID" class="col-form-label control-label"></label>
+                                            <select asp-for="Application.EthnicGroupID" class="form-control" asp-items="ViewBag.EthnicGroupID">
+                                                <option value="" hidden disabled selected>Please select...</option>
+                                            </select>
+                                            <span asp-validation-for="Application.EthnicGroupID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <div class="col-md">
+                                            <label asp-for="Application.DisabilityCategoryID" class="col-form-label control-label"></label>
+                                            <select asp-for="Application.DisabilityCategoryID" class="form-control" asp-items="ViewBag.DisabilityCategoryID">
+                                                <option value="" hidden disabled selected>Please select...</option>
+                                            </select>
+                                            <span asp-validation-for="Application.DisabilityCategoryID" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md">
+                                    <div class="form-group row">
+                                        <div class="col-sm-10">
+                                            If you need additional support at interview because of your learning difficulty or disability please tick this box. 
+                                            A member of our Additional Learning Support team will contact you to discuss your needs.
+                                        </div>
+                                        <div class="col-sm-2 text-right">
+                                            <label class="switch-sm">
+                                                <input asp-for="Application.AdditionalSupportRequiredAtInterview" class="custom-control-input" />
+                                                <span class="slider-sm round"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-secondary btn-block"><i class="fas fa-arrow-circle-left"></i> Back</button>
+                                        </div>
+                                        <div class="col d-none d-sm-block">
+                                            @*Used for button spacing when not small window*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col text-right">
+                                    <div class="row">
+                                        <div class="col d-none d-sm-block">
+                                            @*Used for button spacing when not small window*@
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn btn-primary btn-block NextStep3">Next <i class="fas fa-arrow-circle-right"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" data-interval="4">
+                                <i class="fas fa-file-alt"></i> Prior Qualifications
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+                        <div class="card-body">
+                            <div id="QOEsList">
+                                @foreach (var qoe in Model.QualificationOnEntry)
+                                {
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg">
+                                            <div class="form-group">
+                                                <label asp-for="@qoe.SubjectID"></label>
+                                                <select asp-for="@qoe.SubjectID" class="form-control" asp-items="ViewBag.QOEID">
+                                                    <option value="" hidden disabled selected>Please select...</option>
+                                                </select>
+                                                <span asp-validation-for="@qoe.SubjectID" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg">
+                                            <div class="form-group">
+                                                <label for="qoe.Subject">Subject (if not in list)</label>
+                                                <input type="text" class="form-control" id="qoe.Subject" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-lg">
+                                            <div class="form-group">
+                                                <label asp-for="@qoe.ActualGrade"></label>
+                                                <select asp-for="@qoe.ActualGrade" class="form-control" asp-items="ViewBag.GradeID">
+                                                    <option value="" hidden disabled selected>Please select...</option>
+                                                </select>
+                                                <span asp-validation-for="@qoe.ActualGrade" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 col-lg">
+                                            <div class="form-group">
+                                                <label asp-for="@qoe.PredictedGrade"></label>
+                                                <select asp-for="@qoe.PredictedGrade" class="form-control" asp-items="ViewBag.GradeID">
+                                                    <option value="" hidden disabled selected>Please select...</option>
+                                                </select>
+                                                <span asp-validation-for="@qoe.PredictedGrade" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-lg">
+                                            <div class="form-group">
+                                                <label for="qoe.DateAwarded">Date Awarded</label>
+                                                <input type="date" class="form-control" id="qoe.DateAwarded" />
+                                            </div> 
+                                        </div>
+                                        <div class="col-3 col-md-2 col-lg-1 text-right">
+                                            <div class="form-group">
+                                                @*<label>&nbsp;</label>
+                                                <button type="button" class="form-control btn btn-danger DeleteQOEButton"><i class="fas fa-times"></i></button>*@
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col text-right">
+                                            <button type="button" class="btn btn-primary" id="AddQOEButton"><i class="fas fa-plus-square"></i> Add Another</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row Spacer">
+                                <div class="col">
+                                    <div class="row">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-secondary btn-block"><i class="fas fa-arrow-circle-left"></i> Back</button>
+                                        </div>
+                                        <div class="col d-none d-sm-block">
+                                            @*Used for button spacing when not small window*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col text-right">
+                                    <div class="row">
+                                        <div class="col d-none d-sm-block">
+                                            @*Used for button spacing when not small window*@
+                                        </div>
+                                        <div class="col">
+                                            <button type="submit" class="btn btn-success btn-block SubmitButton"><i class="fas fa-file-upload"></i> Submit Application</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
 </div>
 
 @section Scripts {
